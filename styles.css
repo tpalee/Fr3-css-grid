@@ -1,1 +1,80 @@
-/*Maak hier jouw CSS!*/
+/*CSS reset*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    color: #FFF;
+}
+
+/*setup CSS-grid and position the elements(mobile devices)*/
+#wrapper {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns:1fr;
+    grid-template-rows:50px auto 50px 50px 50px 50px 50px;
+    grid-template-areas:
+            "nav"
+            "article-1"
+            "article-2"
+            "article-3"
+            "article-4"
+            "."
+            "footer";
+}
+
+/*align content of the positioned elements to the center using flexbox*/
+#nav, #article-1, #article-2, #article-3, #article-4, #footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/*setup backgroundcolor and name grid-areas for positioned elements*/
+#nav {
+    background-color: #EF798A;
+    grid-area: nav;
+}
+
+#article-1 {
+    background-color: #7D82B8;
+    grid-area: article-1;
+    padding: 20px;
+}
+
+#article-2 {
+    background-color: #F7A9A8;
+    grid-area: article-2;
+}
+
+#article-3 {
+    background-color: #613F75;
+    grid-area: article-3;
+}
+
+#article-4 {
+    background-color: #E5C3D1;
+    grid-area: article-4;
+}
+
+#footer {
+    background-color: #422B50;
+    grid-area: footer;
+}
+
+/*setup mediaquerie and position elements for desktop screens*/
+@media screen and (min-width: 992px) {
+    #wrapper {
+        grid-template-columns: 2fr 2fr 2fr;
+        grid-template-rows: 50px 240px 100px auto 50px;
+        grid-template-areas:
+        "nav article-2 article-2"
+        "article-1 article-2 article-2"
+        "article-1 article-4 article-3"
+        "article-1 article-4 ."
+        "footer footer footer";
+    }
+}
+
+
+
+
